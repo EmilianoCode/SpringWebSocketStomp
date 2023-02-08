@@ -25,7 +25,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
-		registry.addEndpoint("/gs-guide-websocket").withSockJS();
+		registry.addEndpoint("/gs-guide-websocket").setAllowedOrigins("*").withSockJS();
 
 	}
 
@@ -33,7 +33,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	CorsConfigurationSource corsConfigurationSource()
 	{
 		CorsConfiguration configuration = new CorsConfiguration(); /////
-		// configuration.setAllowedOrigins(List.of("http://localhost:4200", "https://angular-springboot1-beta.vercel.app"));
 		configuration.setAllowedOriginPatterns(List.of("https://springwebsocketstomp-production.up.railway.app/"));
 		configuration.setAllowedMethods(List.of("GET", "POST", "OPTIONS", "DELETE", "PUT", "PATCH"));
 		configuration.setAllowedHeaders(List.of("Access-Control-Allow-Origin", "X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization"));
