@@ -11,7 +11,7 @@ function setConnected(connected) {
     }
     $("#greetings").html("");
 }
-
+//
 function connect() {
     var socket = new SockJS('https://springwebsocketstomp-production.up.railway.app/gs-guide-websocket');
     stompClient = Stomp.over(socket);
