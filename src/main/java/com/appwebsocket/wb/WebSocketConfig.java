@@ -28,18 +28,4 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 		registry.addEndpoint("/gs-guide-websocket").setAllowedOriginPatterns("https://springwebsocketstomp-production.up.railway.app/").withSockJS();
 
 	}
-
-	@Bean
-	CorsConfigurationSource corsConfigurationSource()
-	{
-		CorsConfiguration configuration = new CorsConfiguration(); /////
-		configuration.setAllowedOriginPatterns(List.of("https://springwebsocketstomp-production.up.railway.app/"));
-		configuration.setAllowedMethods(List.of("GET", "POST", "OPTIONS", "DELETE", "PUT", "PATCH"));
-		configuration.setAllowedHeaders(List.of("Access-Control-Allow-Origin", "X-Requested-With", "Origin", "Content-Type", "Accept", "Authorization"));
-		configuration.setAllowCredentials(true);
-		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-		source.registerCorsConfiguration("/**", configuration);
-		return source;
-	}
-
 }
